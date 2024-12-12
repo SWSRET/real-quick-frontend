@@ -1,7 +1,16 @@
+<script setup>
+import { ref } from 'vue'
+
+const isDarkMode = ref(true) // Default to dark mode
+
+function toggleDarkMode() {
+  isDarkMode.value = !isDarkMode.value
+}
+</script>
+
 <template>
   <div
-    :class="[
-      'min-h-screen transition-colors duration-300',
+    class="min-h-screen transition-colors duration-300" :class="[
       isDarkMode
         ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white'
         : 'bg-gradient-to-br from-white via-indigo-50 to-blue-100 text-gray-900',
@@ -9,8 +18,7 @@
   >
     <!-- Navigation Bar -->
     <nav
-      :class="[
-        'backdrop-blur-lg border-b transition-colors duration-300',
+      class="backdrop-blur-lg border-b transition-colors duration-300" :class="[
         isDarkMode
           ? 'bg-gray-900/50 border-gray-800'
           : 'bg-white/50 border-gray-200',
@@ -64,13 +72,13 @@
           </div>
           <div class="flex items-center">
             <button
-              @click="toggleDarkMode"
               class="p-2 rounded-lg transition-colors duration-300"
               :class="
                 isDarkMode
                   ? 'text-gray-300 hover:text-white'
                   : 'text-gray-600 hover:text-gray-900'
               "
+              @click="toggleDarkMode"
             >
               <svg
                 v-if="isDarkMode"
@@ -112,20 +120,19 @@
       <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           class="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
-        ></div>
+        />
         <div
           class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"
-        ></div>
+        />
         <div
           class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"
-        ></div>
+        />
       </div>
 
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative">
         <!-- Hero Section -->
         <div
-          :class="[
-            'backdrop-blur-lg overflow-hidden shadow-2xl rounded-2xl border transition-colors duration-300',
+          class="backdrop-blur-lg overflow-hidden shadow-2xl rounded-2xl border transition-colors duration-300" :class="[
             isDarkMode
               ? 'bg-gray-800/50 border-gray-700'
               : 'bg-white/50 border-gray-200',
@@ -156,8 +163,7 @@
                   Create Schedule
                 </button>
                 <button
-                  :class="[
-                    'px-8 py-3 rounded-lg font-medium border transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
+                  class="px-8 py-3 rounded-lg font-medium border transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" :class="[
                     isDarkMode
                       ? 'bg-gray-800 text-gray-300 border-gray-700 hover:text-white hover:border-indigo-500 focus:ring-offset-gray-900'
                       : 'bg-white text-gray-600 border-gray-200 hover:text-gray-900 hover:border-indigo-500 focus:ring-offset-white',
@@ -175,8 +181,7 @@
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <!-- Feature 1 -->
             <div
-              :class="[
-                'group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25',
+              class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
                 isDarkMode
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
@@ -215,8 +220,7 @@
 
             <!-- Feature 2 -->
             <div
-              :class="[
-                'group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25',
+              class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
                 isDarkMode
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
@@ -254,8 +258,7 @@
 
             <!-- Feature 3 -->
             <div
-              :class="[
-                'group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25',
+              class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
                 isDarkMode
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
@@ -297,8 +300,7 @@
 
     <!-- Footer -->
     <footer
-      :class="[
-        'backdrop-blur-lg border-t mt-12 transition-colors duration-300',
+      class="backdrop-blur-lg border-t mt-12 transition-colors duration-300" :class="[
         isDarkMode
           ? 'bg-gray-900/50 border-gray-800'
           : 'bg-white/50 border-gray-200',
@@ -310,8 +312,7 @@
         <div class="flex justify-center space-x-6 md:order-2">
           <a
             href="#"
-            :class="[
-              'transition-colors duration-300',
+            class="transition-colors duration-300" :class="[
               isDarkMode
                 ? 'text-gray-400 hover:text-indigo-400'
                 : 'text-gray-600 hover:text-indigo-600',
@@ -329,8 +330,7 @@
         </div>
         <div class="mt-8 md:mt-0 md:order-1">
           <p
-            :class="[
-              'text-center text-base',
+            class="text-center text-base" :class="[
               isDarkMode ? 'text-gray-400' : 'text-gray-600',
             ]"
           >
@@ -341,16 +341,6 @@
     </footer>
   </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-
-const isDarkMode = ref(true); // Default to dark mode
-
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-};
-</script>
 
 <style>
 .animate-blob {
