@@ -15,4 +15,9 @@ export default antfu({
     quotes: 'single',
   },
   vue: true,
+
+  ignores: [ // We might don't want it to check docker
+    'docker-compose.yml',
+    'Dockerfile',
+  ],
 })
