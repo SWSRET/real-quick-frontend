@@ -214,6 +214,7 @@ function toggleDarkMode() {
                 <p :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                   Automatically organize your classes, study sessions, and
                   activities
+                  <!-- This is a commit of the message for the git bot -->
                 </p>
               </div>
             </div>
