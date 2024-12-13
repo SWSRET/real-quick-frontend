@@ -31,7 +31,7 @@ function toggleDarkMode() {
               <div
                 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500"
               >
-                Real Quick
+                Gunner
               </div>
             </div>
             <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
