@@ -1,17 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-
-const isDarkMode = ref(true) // Default to dark mode
+const colorMode = useColorMode()
 
 function toggleDarkMode() {
-  isDarkMode.value = !isDarkMode.value
+  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
 </script>
 
 <template>
   <div
     class="min-h-screen transition-colors duration-300" :class="[
-      isDarkMode
+      colorMode.preference === 'dark'
         ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white'
         : 'bg-gradient-to-br from-white via-indigo-50 to-blue-100 text-gray-900',
     ]"
@@ -19,7 +17,7 @@ function toggleDarkMode() {
     <!-- Navigation Bar -->
     <nav
       class="backdrop-blur-lg border-b transition-colors duration-300" :class="[
-        isDarkMode
+        colorMode.preference === 'dark'
           ? 'bg-gray-900/50 border-gray-800'
           : 'bg-white/50 border-gray-200',
       ]"
@@ -39,7 +37,7 @@ function toggleDarkMode() {
                 href="#"
                 class="border-indigo-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300"
                 :class="
-                  isDarkMode
+                  colorMode.preference === 'dark'
                     ? 'text-white hover:text-indigo-400'
                     : 'text-gray-900 hover:text-indigo-600'
                 "
@@ -50,7 +48,7 @@ function toggleDarkMode() {
                 href="#"
                 class="border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300"
                 :class="
-                  isDarkMode
+                  colorMode.preference === 'dark'
                     ? 'text-gray-300 hover:text-white hover:border-indigo-400'
                     : 'text-gray-600 hover:text-gray-900 hover:border-indigo-400'
                 "
@@ -61,7 +59,7 @@ function toggleDarkMode() {
                 href="#"
                 class="border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-all duration-300"
                 :class="
-                  isDarkMode
+                  colorMode.preference === 'dark'
                     ? 'text-gray-300 hover:text-white hover:border-indigo-400'
                     : 'text-gray-600 hover:text-gray-900 hover:border-indigo-400'
                 "
@@ -74,14 +72,14 @@ function toggleDarkMode() {
             <button
               class="p-2 rounded-lg transition-colors duration-300"
               :class="
-                isDarkMode
+                colorMode.preference === 'dark'
                   ? 'text-gray-300 hover:text-white'
                   : 'text-gray-600 hover:text-gray-900'
               "
               @click="toggleDarkMode"
             >
               <svg
-                v-if="isDarkMode"
+                v-if="colorMode.preference === 'dark'"
                 class="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
@@ -133,7 +131,7 @@ function toggleDarkMode() {
         <!-- Hero Section -->
         <div
           class="backdrop-blur-lg overflow-hidden shadow-2xl rounded-2xl border transition-colors duration-300" :class="[
-            isDarkMode
+            colorMode.preference === 'dark'
               ? 'bg-gray-800/50 border-gray-700'
               : 'bg-white/50 border-gray-200',
           ]"
@@ -147,7 +145,7 @@ function toggleDarkMode() {
               </h2>
               <p
                 class="mt-4 max-w-2xl mx-auto text-xl"
-                :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'"
+                :class="colorMode.preference === 'dark' ? 'text-gray-300' : 'text-gray-600'"
               >
                 Smart scheduling for smart students
               </p>
@@ -155,7 +153,7 @@ function toggleDarkMode() {
                 <button
                   class="px-8 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   :class="
-                    isDarkMode
+                    colorMode.preference === 'dark'
                       ? 'focus:ring-offset-gray-900'
                       : 'focus:ring-offset-white'
                   "
@@ -164,7 +162,7 @@ function toggleDarkMode() {
                 </button>
                 <button
                   class="px-8 py-3 rounded-lg font-medium border transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" :class="[
-                    isDarkMode
+                    colorMode.preference === 'dark'
                       ? 'bg-gray-800 text-gray-300 border-gray-700 hover:text-white hover:border-indigo-500 focus:ring-offset-gray-900'
                       : 'bg-white text-gray-600 border-gray-200 hover:text-gray-900 hover:border-indigo-500 focus:ring-offset-white',
                   ]"
@@ -182,7 +180,7 @@ function toggleDarkMode() {
             <!-- Feature 1 -->
             <div
               class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
-                isDarkMode
+                colorMode.preference === 'dark'
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
               ]"
@@ -207,11 +205,11 @@ function toggleDarkMode() {
                 </div>
                 <h3
                   class="text-xl font-semibold mb-2"
-                  :class="isDarkMode ? 'text-white' : 'text-gray-900'"
+                  :class="colorMode.preference === 'dark' ? 'text-white' : 'text-gray-900'"
                 >
                   Smart Scheduling
                 </h3>
-                <p :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                <p :class="colorMode.preference === 'dark' ? 'text-gray-400' : 'text-gray-600'">
                   Automatically organize your classes, study sessions, and
                   activities
                   <!-- This is a commit of the message for the git bot -->
@@ -222,7 +220,7 @@ function toggleDarkMode() {
             <!-- Feature 2 -->
             <div
               class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
-                isDarkMode
+                colorMode.preference === 'dark'
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
               ]"
@@ -247,11 +245,11 @@ function toggleDarkMode() {
                 </div>
                 <h3
                   class="text-xl font-semibold mb-2"
-                  :class="isDarkMode ? 'text-white' : 'text-gray-900'"
+                  :class="colorMode.preference === 'dark' ? 'text-white' : 'text-gray-900'"
                 >
                   Task Management
                 </h3>
-                <p :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                <p :class="colorMode.preference === 'dark' ? 'text-gray-400' : 'text-gray-600'">
                   Keep track of assignments, deadlines, and study goals
                 </p>
               </div>
@@ -260,7 +258,7 @@ function toggleDarkMode() {
             <!-- Feature 3 -->
             <div
               class="group backdrop-blur-lg overflow-hidden rounded-xl border transition-all duration-300 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/25" :class="[
-                isDarkMode
+                colorMode.preference === 'dark'
                   ? 'bg-gray-800/50 border-gray-700'
                   : 'bg-white/50 border-gray-200',
               ]"
@@ -285,11 +283,11 @@ function toggleDarkMode() {
                 </div>
                 <h3
                   class="text-xl font-semibold mb-2"
-                  :class="isDarkMode ? 'text-white' : 'text-gray-900'"
+                  :class="colorMode.preference === 'dark' ? 'text-white' : 'text-gray-900'"
                 >
                   Smart Reminders
                 </h3>
-                <p :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                <p :class="colorMode.preference === 'dark' ? 'text-gray-400' : 'text-gray-600'">
                   Never miss a class or assignment with timely notifications
                 </p>
               </div>
@@ -302,7 +300,7 @@ function toggleDarkMode() {
     <!-- Footer -->
     <footer
       class="backdrop-blur-lg border-t mt-12 transition-colors duration-300" :class="[
-        isDarkMode
+        colorMode.preference === 'dark'
           ? 'bg-gray-900/50 border-gray-800'
           : 'bg-white/50 border-gray-200',
       ]"
@@ -314,7 +312,7 @@ function toggleDarkMode() {
           <a
             href="#"
             class="transition-colors duration-300" :class="[
-              isDarkMode
+              colorMode.preference === 'dark'
                 ? 'text-gray-400 hover:text-indigo-400'
                 : 'text-gray-600 hover:text-indigo-600',
             ]"
@@ -332,7 +330,7 @@ function toggleDarkMode() {
         <div class="mt-8 md:mt-0 md:order-1">
           <p
             class="text-center text-base" :class="[
-              isDarkMode ? 'text-gray-400' : 'text-gray-600',
+              colorMode.preference === 'dark' ? 'text-gray-400' : 'text-gray-600',
             ]"
           >
             &copy; 2024 Real Quick. All rights reserved.
