@@ -32,6 +32,8 @@ Before you begin, ensure you have the following installed:
 - Package manager of your choice ([npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [yarn](https://yarnpkg.com/), or [bun](https://bun.sh/))
 - Git for version control
 
+this is a change to check if signed commits work
+
 ## Setup
 
 1. Clone the repository:
