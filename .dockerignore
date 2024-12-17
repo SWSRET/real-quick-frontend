@@ -1,8 +1,13 @@
 .git
-.gitignore
+.github
 node_modules
 .nuxt
 .output
-README.md
+*.log
 .env
 .env.*
+dist
+README.md
+.gitignore
+.eslintrc
+.prettierrc
