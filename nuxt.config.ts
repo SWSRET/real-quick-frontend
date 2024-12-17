@@ -6,5 +6,6 @@ export default defineNuxtConfig({
   ssr: false,
   routeRules: {
     '/csr': { ssr: false },
+    // does this sign
   },
 })
